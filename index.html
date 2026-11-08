@@ -6,35 +6,35 @@
 <meta name="description" content="Naman Kaushik, ECE (Data Science) student at SRMIST. QNoise quantum noise simulator, Hexagon internship projects, signal processing.">
 <meta property="og:title" content="Naman Kaushik">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0a09">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23161A33'/%3E%3Cpath d='M4 17 Q8 6 12 17 T20 17 T28 17' fill='none' stroke='%237D9BFF' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0d12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0D12'/%3E%3Cpath d='M4 17 Q8 6 12 17 T20 17 T28 17' fill='none' stroke='%235CC8FF' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>:root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Naman Kaushik</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a dark editorial folio. Gold hairlines and a large serif carry the identity; the signal demo and EMTI Lab sit on the same warm-black bench. Deliberately a single dark look in both themes. */
+/* Layout: an instrument panel at night. Blue-black ground, two scope channels (cyan, magenta) as the only colour, a wide geometric face for headings. Deliberately a single dark look in both themes. */
 :root {
   color-scheme: dark;
-  --bg: #0B0A09;
-  --bg2: #0F0D0B;
-  --surface: #15130F;
-  --card2: #1A1713;
-  --line: #2A2519;
-  --grid: #1F1C16;
-  --ink: #ECE6D8;
-  --muted: #9A927F;
-  --faint: #6B6455;
-  --gold: #D8B878;
-  --gold2: #F1E0B5;
-  --ember: #E2774A;
-  --sage: #9FD3A8;
-  --signal: #E3C27E;
-  --noise: #E2774A;
-  --clean: #6B6455;
-  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
-  --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --bg: #0A0D12;
+  --bg2: #0D1118;
+  --surface: #121822;
+  --card2: #161E2B;
+  --line: #222B3A;
+  --grid: #18202C;
+  --ink: #E6EBF2;
+  --muted: #8B96A8;
+  --faint: #5D6778;
+  --gold: #5CC8FF;
+  --gold2: #B9E8FF;
+  --ember: #FF5CA8;
+  --sage: #7BE0B0;
+  --signal: #5CC8FF;
+  --noise: #FF5CA8;
+  --clean: #5D6778;
+  --font-display: "Unbounded", "Arial Black", "Segoe UI", sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 * { box-sizing: border-box; }
@@ -43,56 +43,61 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top
 body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
 a { color: inherit; }
-::selection { background: rgba(216,184,120,.3); }
+::selection { background: rgba(92,200,255,.3); }
 :focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
 
 .wrap { max-width: 1160px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 @media (min-width: 800px) { .wrap { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); } }
 
 /* Eyebrows and headings */
-.eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: .72rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); }
-.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); opacity: .7; }
-.sec-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.02; letter-spacing: -0.01em; margin: 14px 0 12px; color: var(--ink); text-wrap: balance; }
-.sec-title em { font-style: italic; color: var(--gold2); }
-.sec-sub { color: var(--muted); margin: 0 0 40px; max-width: 40em; font-weight: 300; font-size: 1.05rem; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: .78rem; color: var(--muted); }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.sec-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.8rem, 3.8vw, 2.8rem); line-height: 1.1; letter-spacing: -0.03em; margin: 14px 0 12px; color: var(--ink); text-wrap: balance; }
+.sec-title em { font-style: normal; }
+.sec-sub { color: var(--muted); margin: 0 0 40px; max-width: 40em; font-size: 1.05rem; }
 
 /* Nav */
-.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgba(11,10,9,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgba(10,13,18,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; }
-.brand { font-family: var(--font-display); font-size: 1.45rem; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: .02em; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: .95rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.brand i { width: 22px; height: 12px; display: inline-block; background: linear-gradient(90deg, var(--gold), var(--ember)); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 12'%3E%3Cpath d='M1 6 Q4 0 6.5 6 T12 6 T17 6 T21 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 12'%3E%3Cpath d='M1 6 Q4 0 6.5 6 T12 6 T17 6 T21 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat; }
 .navlinks { display: flex; gap: 28px; }
-.navlinks a { text-decoration: none; color: var(--muted); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; transition: color .2s; }
-.navlinks a:hover { color: var(--gold2); }
-.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--gold); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; align-items: center; justify-content: center; }
+.navlinks a { text-decoration: none; color: var(--muted); font-size: .9rem; transition: color .2s; }
+.navlinks a:hover { color: var(--ink); }
+.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--ink); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; align-items: center; justify-content: center; }
 .menu-btn svg { width: 18px; height: 18px; }
 @media (max-width: 900px) {
   .menu-btn { display: inline-flex; }
   .navlinks { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg2); border-bottom: 1px solid var(--line); padding: 8px max(20px, env(safe-area-inset-right, 0px)) 16px max(20px, env(safe-area-inset-left, 0px)); }
   .navlinks.open { display: flex; }
-  .navlinks a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: .78rem; }
+  .navlinks a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
   .navlinks a:last-child { border-bottom: 0; }
 }
 
 /* Hero */
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
-.hero canvas.ambient { position: absolute; inset: auto 0 0 0; width: 100%; height: 46%; pointer-events: none; opacity: .6; }
-@media (max-width: 760px) { .hero canvas.ambient { opacity: .35; } }
+.hero canvas.ambient { position: absolute; inset: auto 0 0 0; width: 100%; height: 50%; pointer-events: none; opacity: .8; }
+@media (max-width: 760px) { .hero canvas.ambient { opacity: .45; } }
 .stats { position: relative; }
 .hero .wrap { position: relative; padding-block: 120px 96px; display: grid; gap: 26px; }
 @media (max-width: 700px) { .hero .wrap { padding-block: 72px 64px; } }
-.hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(3.6rem, 11vw, 8.6rem); line-height: .92; letter-spacing: -0.015em; margin: 0; background: linear-gradient(100deg, var(--gold2) 0%, var(--gold) 45%, #B8924F 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-wrap: balance; }
-.role { font-size: .78rem; letter-spacing: .36em; text-transform: uppercase; color: var(--muted); }
-.lede { font-size: clamp(1.05rem, 1.6vw, 1.22rem); font-weight: 300; max-width: 34em; margin: 0; color: #D9D1BF; }
-.lede em { font-family: var(--font-display); font-size: 1.18em; color: var(--gold2); }
+.hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.7rem, 8.2vw, 6.4rem); line-height: .98; letter-spacing: -0.045em; margin: 0; color: var(--ink); text-wrap: balance; }
+.hero h1 span { color: var(--gold); }
+.role { font-family: var(--font-mono); font-size: .86rem; color: var(--muted); }
+.role b { color: var(--ember); font-weight: 500; }
+.lede { font-size: clamp(1.05rem, 1.6vw, 1.22rem); max-width: 36em; margin: 0; color: #C9D2DE; }
+.lede em { font-style: normal; font-weight: 600; color: var(--gold); }
 .hero-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
-.btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border-radius: 999px; font-size: .72rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--line); color: var(--ink); transition: border-color .25s, color .25s, background .25s; background: transparent; cursor: pointer; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 10px; font-size: .95rem; font-weight: 600; text-decoration: none; border: 1px solid var(--line); color: var(--ink); transition: border-color .25s, color .25s, background .25s; background: transparent; cursor: pointer; }
 .btn:hover { border-color: var(--gold); color: var(--gold2); }
-.btn.primary { background: var(--gold); border-color: var(--gold); color: #17130B; }
-.btn.primary:hover { background: var(--gold2); border-color: var(--gold2); color: #17130B; }
-.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 44px; border-top: 1px solid var(--line); }
+.btn.primary { background: var(--gold); border-color: var(--gold); color: #04121C; }
+.btn.primary:hover { background: var(--gold2); border-color: var(--gold2); color: #04121C; box-shadow: 0 8px 30px rgba(92,200,255,.25); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
 @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.stat { padding: 22px 18px 4px 0; display: grid; gap: 4px; }
-.stat strong { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; color: var(--gold2); font-variant-numeric: lining-nums tabular-nums; }
+.stat { padding: 18px 18px 16px; display: grid; gap: 6px; background: rgba(18,24,34,.78); border: 1px solid var(--line); border-radius: 14px; backdrop-filter: blur(4px); }
+.stat strong { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1; letter-spacing: -0.03em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.stat:nth-child(odd) strong { color: var(--gold); }
+.stat:nth-child(even) strong { color: var(--ember); }
 .stat span { font-size: .78rem; color: var(--muted); line-height: 1.45; }
 
 /* Sections */
@@ -104,14 +109,14 @@ section.block > .wrap { padding-block: 104px; }
 .bench { background: var(--bg2); }
 .scope { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 16px; }
 .scope-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; }
-.scope-head h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; }
+.scope-head h2 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; }
 .scope-head p { margin: 0; font-size: .85rem; color: var(--muted); }
 .traces { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
 @media (max-width: 760px) { .traces { grid-template-columns: minmax(0, 1fr); } }
 .trace { display: grid; gap: 8px; min-width: 0; }
 .trace-label { display: flex; justify-content: space-between; gap: 8px; font-family: var(--font-mono); font-size: .74rem; color: var(--muted); }
 .trace-label .v { color: var(--gold2); font-variant-numeric: tabular-nums; }
-.trace canvas { width: 100%; height: 170px; display: block; border-radius: 12px; background: #0D0B08; border: 1px solid var(--line); }
+.trace canvas { width: 100%; height: 170px; display: block; border-radius: 12px; background: #080B10; border: 1px solid var(--line); }
 .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .toggle { display: inline-flex; align-items: center; gap: 9px; font-size: .86rem; cursor: pointer; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; user-select: none; color: var(--ink); }
 .toggle input { accent-color: var(--ember); width: 15px; height: 15px; margin: 0; }
@@ -129,89 +134,90 @@ section.block > .wrap { padding-block: 104px; }
 .project { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 56px; }
 @media (max-width: 900px) { .project { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
-.pill { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
-.pill.award { border-color: var(--gold); color: var(--gold2); }
-.project h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; margin: 30px 0 10px; color: var(--ink); }
+.pill { font-family: var(--font-mono); font-size: .74rem; padding: 5px 10px; border-radius: 8px; border: 1px solid var(--line); color: var(--muted); }
+.pill.award { border-color: var(--ember); color: #FFB3D4; }
+.project h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; letter-spacing: -0.02em; margin: 30px 0 12px; color: var(--ink); }
 .project h3:first-of-type { margin-top: 0; }
 .project p { margin: 0 0 12px; max-width: 40em; }
-.project ul { margin: 0; padding-left: 1.1em; display: grid; gap: 10px; color: #D9D1BF; }
-.project ul b { color: var(--gold2); font-weight: 600; }
+.project ul { margin: 0; padding-left: 1.1em; display: grid; gap: 10px; color: #C9D2DE; }
+.project ul b { color: var(--gold); font-weight: 600; }
 .pipeline { list-style: none; margin: 0; padding: 0 !important; display: grid; gap: 0; }
 .pipeline li { position: relative; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; padding: 0 0 20px; }
 .pipeline li::before { content: ""; position: absolute; left: 16px; top: 30px; bottom: 2px; border-left: 1px solid var(--line); }
 .pipeline li:last-child::before { display: none; }
-.pipeline .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-size: 1.05rem; border: 1px solid var(--gold); color: var(--gold2); }
+.pipeline .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: .82rem; border: 1px solid var(--gold); color: var(--gold); }
 .pipeline li:nth-child(2) .n { border-color: var(--ember); color: var(--ember); }
 .pipeline b { display: block; font-weight: 600; color: var(--ink); }
 .pipeline span { font-size: .92rem; color: var(--muted); }
 .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 26px; align-content: start; align-self: start; }
-.side-card h3 { margin: 0 !important; font-size: 1.35rem !important; }
+.side-card h3 { margin: 0 !important; font-size: 1.02rem !important; }
 .loop { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; list-style: none; margin: 0; padding: 0 !important; }
-.loop li { font-family: var(--font-mono); font-size: .74rem; padding: 6px 10px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); color: #D9D1BF; }
+.loop li { font-family: var(--font-mono); font-size: .74rem; padding: 6px 10px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); color: #C9D2DE; }
 .loop li.to { border: 0; background: none; padding: 0; color: var(--gold); }
 .noise-types { display: grid; gap: 10px; margin: 0; padding: 0 !important; list-style: none; }
 .noise-types li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 12px; font-size: .9rem; }
-.noise-types b { font-weight: 600; color: var(--gold2); }
+.noise-types b { font-weight: 600; color: var(--ember); }
 
 /* Cards */
 .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; margin: 0 0 30px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
-.job-role { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.7rem; }
+.job-role { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; }
 .job-sub { margin: 4px 0 0; color: var(--muted); }
-.job-when { font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+.job-when { font-family: var(--font-mono); font-size: .82rem; color: var(--gold); }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; counter-reset: card; }
 .cards.two-up { grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); }
 .card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 30px 28px 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; transition: border-color .3s, transform .3s, background .3s; counter-increment: card; }
-.card::before { content: counter(card, decimal-leading-zero); position: absolute; top: 26px; right: 28px; font-family: var(--font-display); font-size: 1.1rem; color: var(--faint); }
-.card:hover { border-color: rgba(216,184,120,.55); background: var(--card2); }
+.card::before { content: ""; position: absolute; left: 28px; right: 28px; top: 0; height: 2px; border-radius: 0 0 2px 2px; background: linear-gradient(90deg, var(--gold), var(--ember)); opacity: 0; transition: opacity .3s; }
+.card:hover::before { opacity: 1; }
+.card:hover { border-color: rgba(92,200,255,.4); background: var(--card2); }
 @media (prefers-reduced-motion: no-preference) { .card:hover { transform: translateY(-3px); } }
-.card h4 { margin: 0; padding-right: 2.5em; font-family: var(--font-display); font-weight: 500; font-size: 1.55rem; line-height: 1.15; color: var(--ink); }
-.card p { margin: 0; color: #D9D1BF; }
+.card h4 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; line-height: 1.25; letter-spacing: -0.02em; color: var(--ink); }
+.card p { margin: 0; color: #C9D2DE; }
 .mini { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: .9rem; color: var(--muted); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: auto 0 0; padding: 8px 0 0; }
-.tags li { font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
-.card-link { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; color: var(--gold); text-decoration: none; }
+.tags li { font-family: var(--font-mono); font-size: .72rem; padding: 4px 9px; border-radius: 7px; border: 1px solid var(--line); color: var(--muted); }
+.card-link { font-size: .92rem; font-weight: 600; color: var(--gold); text-decoration: none; }
 .card-link::after { content: " →"; }
 .card-link:hover { color: var(--gold2); }
-.card-status { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--faint); }
+.card-status { font-family: var(--font-mono); font-size: .78rem; color: var(--ember); }
 
 /* Skills */
 .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
 @media (max-width: 880px) { .grid3 { grid-template-columns: minmax(0, 1fr); } }
 .grid3 > div { padding: 28px 28px 28px 0; border-bottom: 1px solid var(--line); }
 @media (min-width: 881px) { .grid3 > div + div { padding-left: 28px; border-left: 1px solid var(--line); } }
-.grid3 h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; margin: 0 0 16px; color: var(--ink); }
+.grid3 h3 { font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: -0.02em; margin: 0 0 16px; color: var(--ink); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-.chips li { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: .88rem; color: #D9D1BF; }
+.chips li { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: .9rem; color: #C9D2DE; }
 
 /* Education */
 .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
 @media (max-width: 820px) { .two { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
 .edu-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 32px; display: grid; gap: 10px; align-content: start; }
-.edu-card h3 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.7rem; line-height: 1.15; }
+.edu-card h3 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; line-height: 1.25; letter-spacing: -0.02em; }
 .edu-card p { margin: 0; color: var(--muted); }
 .gpa { display: flex; align-items: baseline; gap: 12px; margin: 14px 0 6px; }
-.gpa strong { font-family: var(--font-display); font-weight: 500; font-size: 4.4rem; line-height: .9; background: linear-gradient(100deg, var(--gold2), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gpa strong { font-family: var(--font-display); font-weight: 700; font-size: 3.4rem; line-height: .9; letter-spacing: -0.04em; color: var(--gold); }
 .gpa span { color: var(--muted); font-size: .9rem; }
-.course { color: #D9D1BF !important; font-size: .95rem; }
+.course { color: #C9D2DE !important; font-size: .95rem; }
 .certs { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; }
 .certs li { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
 .certs li:first-child { border-top: 1px solid var(--line); }
-.certs b { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; color: var(--ink); line-height: 1.2; }
+.certs b { font-weight: 600; font-size: 1.05rem; color: var(--ink); line-height: 1.35; }
 .certs span { color: var(--muted); font-size: .9rem; }
 
 /* Contact */
-.contact { background: radial-gradient(900px 400px at 15% 0%, rgba(216,184,120,.1), rgba(11,10,9,0) 70%), var(--bg); }
+.contact { background: radial-gradient(800px 380px at 10% 0%, rgba(92,200,255,.09), rgba(10,13,18,0) 70%), radial-gradient(700px 360px at 95% 100%, rgba(255,92,168,.07), rgba(10,13,18,0) 70%), var(--bg); }
 .contact .wrap { display: grid; gap: 22px; }
-.contact .sec-title { font-size: clamp(2.8rem, 7vw, 5.4rem); }
+.contact .sec-title { font-size: clamp(2.2rem, 6vw, 4.2rem); }
 .contact-rows { display: grid; gap: 0; border-top: 1px solid var(--line); margin-top: 12px; }
 .c-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.c-row .k { font-size: .7rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); min-width: 8em; }
-.c-row .v { font-family: var(--font-display); font-size: clamp(1.25rem, 2.6vw, 1.7rem); overflow-wrap: anywhere; text-decoration: none; color: var(--ink); }
-a.c-row-link, .c-row a.v:hover { color: var(--gold2); }
+.c-row .k { font-family: var(--font-mono); font-size: .82rem; color: var(--muted); min-width: 7em; }
+.c-row .v { font-family: var(--font-body); font-weight: 500; font-size: clamp(1.1rem, 2.2vw, 1.45rem); overflow-wrap: anywhere; text-decoration: none; color: var(--ink); }
+.c-row a.v:hover { color: var(--gold); }
 .c-row .v.sel { user-select: all; }
-.copy { font: 500 .7rem var(--font-body); letter-spacing: .22em; text-transform: uppercase; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; }
-.copy:hover { background: var(--gold); color: #17130B; }
-footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--faint); }
+.copy { font: 600 .85rem var(--font-body); padding: 8px 14px; border-radius: 8px; border: 1px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; }
+.copy:hover { background: var(--gold); color: #04121C; }
+footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-family: var(--font-mono); font-size: .78rem; color: var(--faint); }
 
 /* Scroll reveal: content stays readable before it animates */
 .rv { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
@@ -222,7 +228,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
 <body>
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">N.K.</a>
+    <a class="brand" href="#top"><i aria-hidden="true"></i>Naman Kaushik</a>
     <nav class="navlinks" id="navlinks" aria-label="Sections">
       <a href="#qnoise">QNoise</a>
       <a href="#emti">EMTI Lab</a>
@@ -240,14 +246,14 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="hero" aria-labelledby="name">
     <canvas class="ambient" id="ambient" aria-hidden="true"></canvas>
     <div class="wrap">
-      <span class="eyebrow rv">Portfolio · 2026</span>
-      <h1 id="name" class="rv">Naman Kaushik</h1>
-      <span class="role rv">Electronics &amp; Communication · Data Science</span>
+      <span class="eyebrow rv">SRMIST, Chennai · open to internships</span>
+      <h1 id="name" class="rv">Naman <span>Kaushik</span></h1>
+      <span class="role rv">ECE <b>+</b> Data Science · signals, data and code</span>
       <p class="lede rv">I study ECE with a data science specialisation at SRMIST, Chennai, and I like building tools that work. I interned at Hexagon Geosystems India building AI-assisted HR software. My main project, <em>QNoise</em>, shows how noise wrecks a signal and how filtering brings it back.</p>
       <div class="hero-links rv">
-        <a class="btn primary" href="#qnoise">View my work</a>
-        <a class="btn" href="#emti">EMTI Lab</a>
-        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn primary" href="#qnoise">See QNoise</a>
+        <a class="btn" href="#emti">Open the EMTI Lab</a>
+        <a class="btn" href="#contact">Contact</a>
       </div>
       <div class="stats rv">
         <div class="stat"><strong>8.97</strong><span>CGPA, first year</span></div>
@@ -261,7 +267,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="block bench" aria-labelledby="scopeTitle">
     <div class="wrap">
       <span class="eyebrow rv">Interactive</span>
-      <h2 class="sec-title rv">Add noise, then <em>filter it out</em></h2>
+      <h2 class="sec-title rv">Add noise, then filter it out</h2>
       <p class="sec-sub rv">The idea behind QNoise in a few lines of code. Switch on a kind of noise, then turn up the filter and watch the error drop.</p>
       <div class="scope rv">
         <div class="scope-head">
@@ -293,7 +299,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="block" id="qnoise" aria-labelledby="qTitle">
     <div class="wrap">
       <span class="eyebrow rv">Featured project</span>
-      <h2 class="sec-title rv" id="qTitle">QNoise <em>(QBitX)</em>: quantum noise, simulated</h2>
+      <h2 class="sec-title rv" id="qTitle">QNoise (QBitX): quantum noise, simulated</h2>
       <p class="sec-sub rv">A platform I co-created that shows how environmental noise degrades quantum control signals, such as microwave pulses, and how mitigation restores them. Users inject noise, watch the signal fall apart in real time, then compare two ways of fixing it.</p>
       <div class="hero-links" style="margin:-8px 0 28px">
         <a class="btn primary" href="https://q-noise-q-bit-x.vercel.app/" target="_blank" rel="noopener">Open the live demo</a>
@@ -353,33 +359,33 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
 <style>
 /* EMTI Lab: a deliberately dark lab-bench band in both themes, with glowing traces. */
 .lab {
-  --l-bg: #0B0A09; --l-panel: #15130F; --l-panel2: #1C1914; --l-line: #2A2519; --l-grid: #1F1C16;
-  --l-text: #ECE6D8; --l-muted: #9A927F; --l-faint: #6B6455;
-  --l-cyan: #E3C27E; --l-orange: #E2774A; --l-pink: #E39AAE; --l-green: #9FD3A8; --l-yellow: #F1E0B5;
-  background: radial-gradient(1100px 480px at 85% -10%, rgba(216,184,120,.13) 0%, rgba(11,10,9,0) 60%), var(--l-bg);
+  --l-bg: #0A0D12; --l-panel: #121822; --l-panel2: #17202D; --l-line: #222B3A; --l-grid: #18202C;
+  --l-text: #E6EBF2; --l-muted: #8B96A8; --l-faint: #5D6778;
+  --l-cyan: #5CC8FF; --l-orange: #FF5CA8; --l-pink: #B58CFF; --l-green: #7BE0B0; --l-yellow: #C3F0FF;
+  background: radial-gradient(1100px 480px at 85% -10%, rgba(92,200,255,.10) 0%, rgba(10,13,18,0) 60%), var(--l-bg);
   color: var(--l-text); color-scheme: dark; border-top: 1px solid var(--line);
 }
 .lab > .wrap { padding-block: 104px; }
 @media (max-width: 720px) { .lab > .wrap { padding-block: 44px; } }
-.lab-kicker { display: inline-flex; align-items: center; gap: 12px; font-size: .72rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); }
-.lab-kicker::before { content: ""; width: 28px; height: 1px; background: var(--gold); opacity: .7; }
-.lab h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.3rem, 5vw, 3.6rem); letter-spacing: -0.01em; line-height: 1.02; margin: 6px 0 10px; text-wrap: balance; color: var(--l-text); }
+.lab-kicker { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: .78rem; color: var(--muted); }
+.lab-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 10px var(--ember); }
+.lab h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.8rem, 3.8vw, 2.8rem); letter-spacing: -0.03em; line-height: 1.1; margin: 6px 0 10px; text-wrap: balance; color: var(--l-text); }
 .lab-sub { color: var(--l-muted); margin: 0 0 26px; max-width: 46em; }
 .lab-tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; margin-bottom: 18px; }
 .lab-tabs::-webkit-scrollbar { display: none; }
 .lab-tab { flex: none; display: grid; gap: 2px; text-align: left; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--l-line); background: var(--l-panel); color: var(--l-muted); cursor: pointer; font: inherit; min-width: 9.5em; }
 .lab-tab b { font-family: var(--font-mono); font-size: .72rem; font-weight: 500; color: var(--l-faint); }
 .lab-tab span { font-size: .92rem; font-weight: 600; }
-.lab-tab[aria-selected="true"] { background: var(--l-panel2); border-color: var(--l-cyan); color: var(--l-text); box-shadow: 0 0 0 1px var(--l-cyan) inset, 0 8px 30px rgba(216,184,120,.12); }
+.lab-tab[aria-selected="true"] { background: var(--l-panel2); border-color: var(--l-cyan); color: var(--l-text); box-shadow: 0 0 0 1px var(--l-cyan) inset, 0 8px 30px rgba(92,200,255,.14); }
 .lab-tab[aria-selected="true"] b { color: var(--l-cyan); }
 .lab-tab:focus-visible { outline: 2px solid var(--l-cyan); outline-offset: 2px; }
 .inst { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; }
 @media (max-width: 900px) { .inst { grid-template-columns: minmax(0, 1fr); } }
 .panel { background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 14px; padding: 16px; min-width: 0; }
-.panel h3 { margin: 0 0 4px; font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; color: var(--l-text); }
+.panel h3 { margin: 0 0 4px; font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; letter-spacing: -0.02em; color: var(--l-text); }
 .panel .hint { margin: 0 0 12px; font-size: .86rem; color: var(--l-muted); }
 .viz { display: grid; gap: 12px; align-content: start; }
-.viz canvas { width: 100%; display: block; border-radius: 10px; background: #0D0B08; touch-action: none; }
+.viz canvas { width: 100%; display: block; border-radius: 10px; background: #080B10; touch-action: none; }
 .cv-main { height: 320px; }
 .cv-sub { height: 190px; }
 .cv-square { aspect-ratio: 1 / 1; height: auto; max-width: 520px; margin: 0 auto; }
@@ -393,14 +399,14 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
 .switch-row { display: inline-flex; align-items: center; gap: 10px; font-size: .9rem; cursor: pointer; }
 .switch-row input { accent-color: var(--l-orange); width: 16px; height: 16px; margin: 0; }
 .reads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.read { background: #0F0D0A; border: 1px solid var(--l-line); border-radius: 10px; padding: 9px 11px; min-width: 0; }
+.read { background: #0C1119; border: 1px solid var(--l-line); border-radius: 10px; padding: 9px 11px; min-width: 0; }
 .read .k { font-size: .74rem; color: var(--l-muted); }
 .read .v { font-family: var(--font-mono); font-size: .95rem; color: var(--l-text); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
-.read.hl { border-color: rgba(216,184,120,.5); }
+.read.hl { border-color: rgba(92,200,255,.5); }
 .read.hl .v { color: var(--l-cyan); }
 .read.good .v { color: var(--l-green); }
 .read.bad .v { color: var(--l-orange); }
-.verdict { font-size: .92rem; padding: 10px 12px; border-radius: 10px; background: #0F0D0A; border-left: 3px solid var(--l-cyan); color: var(--l-text); margin: 0; }
+.verdict { font-size: .92rem; padding: 10px 12px; border-radius: 10px; background: #0C1119; border-left: 3px solid var(--l-cyan); color: var(--l-text); margin: 0; }
 .btn-reset { justify-self: start; font: 600 .82rem var(--font-body); color: var(--l-muted); background: none; border: 1px solid var(--l-line); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
 .btn-reset:hover { color: var(--l-text); border-color: var(--l-muted); }
 .extras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
@@ -413,7 +419,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
 .extras details[open] summary::after { content: "–"; }
 .extras .body { padding: 0 16px 16px; display: grid; gap: 10px; }
 .extras img { width: 100%; height: auto; display: block; border-radius: 8px; background: #FFFFFF; }
-.extras pre { margin: 0; max-height: 420px; overflow: auto; background: #0D0B08; border: 1px solid var(--l-line); border-radius: 8px; padding: 12px; font: .78rem/1.55 var(--font-mono); color: #D9D1BF; tab-size: 4; }
+.extras pre { margin: 0; max-height: 420px; overflow: auto; background: #080B10; border: 1px solid var(--l-line); border-radius: 8px; padding: 12px; font: .78rem/1.55 var(--font-mono); color: #C9D2DE; tab-size: 4; }
 .lab-foot { margin-top: 22px; font-size: .85rem; color: var(--l-muted); }
 .lab-link { color: var(--l-cyan); font-size: .88rem; font-weight: 600; text-underline-offset: 3px; justify-self: start; }
 .lab-link:hover { color: #FFFFFF; }
@@ -422,7 +428,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
 <section class="lab" id="emti" aria-labelledby="labTitle">
   <div class="wrap">
     <span class="lab-kicker">Coursework · 21ECC205T LLT-1</span>
-    <h2 id="labTitle">EMTI Lab: five simulations <em style="color:var(--gold2)">you can play with</em></h2>
+    <h2 id="labTitle">EMTI Lab: five simulations you can play with</h2>
     <p class="lab-sub">I wrote five Python simulations for my electromagnetics course, then rebuilt them here so the physics runs live in your browser. Move a slider and every number and curve updates. The original plot and Python code sit under each one.</p>
 
     <div class="lab-tabs" role="tablist" aria-label="Simulations">
@@ -437,7 +443,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     <div class="pane" role="tabpanel" id="pane-q1" aria-labelledby="tab-q1">
       <div class="inst">
         <div class="panel viz">
-          <div><h3>Count the field lines crossing the sphere</h3><p class="hint">Green dots are lines leaving the Gaussian sphere, ember dots are lines entering it. Move the charge outside and every line that enters also leaves.</p></div>
+          <div><h3>Count the field lines crossing the sphere</h3><p class="hint">Green dots are lines leaving the Gaussian sphere, magenta dots are lines entering it. Move the charge outside and every line that enters also leaves.</p></div>
           <canvas class="cv-main" id="q1cv" role="img" aria-label="Point charge with radial field lines and a circular Gaussian surface"></canvas>
           <canvas class="cv-sub" id="q1plot" role="img" aria-label="Numerical flux against sphere radius"></canvas>
           <p class="cap">Lower plot: numerical flux against sphere radius for the current charge position.</p>
@@ -464,10 +470,10 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     <div class="pane" role="tabpanel" id="pane-q2" aria-labelledby="tab-q2" hidden>
       <div class="inst">
         <div class="panel viz">
-          <div><h3>Watch the field change between the plates</h3><p class="hint">Gold arrows show the electric field. The ember glow is the displacement current: it peaks when the field is changing fastest, a quarter-cycle ahead.</p></div>
+          <div><h3>Watch the field change between the plates</h3><p class="hint">Cyan arrows show the electric field. The magenta glow is the displacement current: it peaks when the field is changing fastest, a quarter-cycle ahead.</p></div>
           <canvas class="cv-main" id="q2cv" role="img" aria-label="Parallel-plate capacitor with an oscillating electric field"></canvas>
           <canvas class="cv-sub" id="q2plot" role="img" aria-label="Electric field and displacement current over two cycles"></canvas>
-          <p class="cap">Lower plot: E (gold) and I_d (ember) over two cycles. The animation is slowed down so you can see it.</p>
+          <p class="cap">Lower plot: E (cyan) and I_d (magenta) over two cycles. The animation is slowed down so you can see it.</p>
         </div>
         <div class="panel ctrls">
           <div class="ctrl"><div class="ctrl-top"><label for="q2f">Frequency f</label><output id="q2fo"></output></div><input type="range" id="q2f" min="2" max="9" step="0.05" value="6"></div>
@@ -495,7 +501,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
           <div><h3>Send a wave down a lossy cable</h3><p class="hint">The wave travels from the source on the left. Its envelope shrinks as the line eats energy, and the bar below shows what is left at the far end.</p></div>
           <canvas class="cv-main" id="q3cv" role="img" aria-label="Travelling voltage wave with a decaying envelope"></canvas>
           <canvas class="cv-sub" id="q3plot" role="img" aria-label="Attenuation against frequency for both loss models"></canvas>
-          <p class="cap">Lower plot: attenuation α (dB/m) against frequency. Ember: constant R and G. Gold dashed: with skin effect and dielectric loss.</p>
+          <p class="cap">Lower plot: attenuation α (dB/m) against frequency. Magenta: constant R and G. Cyan dashed: with skin effect and dielectric loss.</p>
         </div>
         <div class="panel ctrls">
           <div class="ctrl"><div class="ctrl-top"><label for="q3f">Frequency f</label><output id="q3fo"></output></div><input type="range" id="q3f" min="6" max="9" step="0.02" value="8"></div>
@@ -519,10 +525,10 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     <div class="pane" role="tabpanel" id="pane-q4" aria-labelledby="tab-q4" hidden>
       <div class="inst">
         <div class="panel viz">
-          <div><h3>Tune the match and watch reflections vanish</h3><p class="hint">Ember pulses are power bouncing back from the load. At the design frequency the λ/4 section cancels them.</p></div>
+          <div><h3>Tune the match and watch reflections vanish</h3><p class="hint">Magenta pulses are power bouncing back from the load. At the design frequency the λ/4 section cancels them.</p></div>
           <canvas class="cv-main" id="q4cv" role="img" aria-label="Line, quarter-wave section and load, with reflected pulses"></canvas>
           <canvas class="cv-sub" id="q4plot" role="img" aria-label="Reflection coefficient against frequency"></canvas>
-          <p class="cap">Lower plot: |Γ| against frequency, with the transformer (gold) and without it (ember dashed). Shaded: |Γ| &lt; 0.1.</p>
+          <p class="cap">Lower plot: |Γ| against frequency, with the transformer (cyan) and without it (magenta dashed). Shaded: |Γ| &lt; 0.1.</p>
         </div>
         <div class="panel ctrls">
           <div class="ctrl"><div class="ctrl-top"><label for="q4f">Operating frequency</label><output id="q4fo"></output></div><input type="range" id="q4f" min="0.05" max="2" step="0.01" value="1"></div>
@@ -546,7 +552,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     <div class="pane" role="tabpanel" id="pane-q5" aria-labelledby="tab-q5" hidden>
       <div class="inst">
         <div class="panel viz">
-          <div><h3>Drag the load around the Smith chart</h3><p class="hint">Drag the gold point, or use the sliders. The dashed circle is constant VSWR; the centre star is a perfect match.</p></div>
+          <div><h3>Drag the load around the Smith chart</h3><p class="hint">Drag the cyan point, or use the sliders. The dashed circle is constant VSWR; the centre star is a perfect match.</p></div>
           <canvas class="cv-square" id="q5cv" role="img" aria-label="Interactive Smith chart with a draggable load point"></canvas>
           <p class="cap">Z₀ = 50 Ω, f = 1 GHz (λ = 30 cm).</p>
         </div>
@@ -581,7 +587,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   var CODES = ["\"\"\"\nSimulation 1 - Gauss's Law: flux of a point charge through a spherical Gaussian surface.\n\nNumerically integrates E.dA over spheres of different radii and compares with Q/eps0.\nParameters: Q = 1 nC at the origin, radii 0.1 m to 5 m.\nRun:  python sim1_gauss_flux.py\n\"\"\"\nimport numpy as np\nimport matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\n\nEPS0 = 8.854187817e-12\nK = 1 / (4 * np.pi * EPS0)\nQ = 1e-9  # 1 nC\n\n\ndef E_field(q, q_pos, pts):\n    r = pts - q_pos\n    rmag = np.linalg.norm(r, axis=-1, keepdims=True)\n    return K * q * r / rmag**3\n\n\ndef flux_sphere(q, q_pos, R, n=300):\n    \"\"\"Midpoint-rule surface integral of E.n dA over a sphere of radius R centred at the origin.\"\"\"\n    dth, dph = np.pi / n, 2 * np.pi / (2 * n)\n    th = (np.arange(n) + 0.5) * dth\n    ph = (np.arange(2 * n) + 0.5) * dph\n    TH, PH = np.meshgrid(th, ph, indexing=\"ij\")\n    nrm = np.stack([np.sin(TH) * np.cos(PH), np.sin(TH) * np.sin(PH), np.cos(TH)], -1)\n    dA = R**2 * np.sin(TH) * dth * dph\n    return np.sum(np.sum(E_field(q, q_pos, R * nrm) * nrm, -1) * dA)\n\n\ndef main():\n    theory = Q / EPS0\n    origin = np.zeros(3)\n    print(\"=\" * 66)\n    print(\"SIMULATION 1: Gauss's Law - flux through a spherical Gaussian surface\")\n    print(\"=\" * 66)\n    print(f\"Q = {Q:.1e} C at the origin   Theoretical flux Q/eps0 = {theory:.4f} V.m\\n\")\n    print(f\"{'R (m)':>8} {'|E| on surface (V/m)':>22} {'Flux (V.m)':>14} {'Error %':>10}\")\n    table_r = [0.1, 0.5, 1.0, 2.0, 3.0, 5.0]\n    for R in table_r:\n        phi = flux_sphere(Q, origin, R)\n        print(f\"{R:8.2f} {K * Q / R**2:22.4f} {phi:14.4f} {abs(phi - theory) / theory * 100:10.5f}\")\n    print(\"\\n|E| falls as 1/R^2 while the area grows as R^2, so the flux stays equal to Q/eps0.\")\n\n    radii = np.linspace(0.1, 5, 50)\n    flux_c = np.array([flux_sphere(Q, origin, R, 150) for R in radii])\n    # Extra check: charge displaced to x = 2 m, flux only counts once it is enclosed\n    q_off = np.array([2.0, 0, 0])\n    flux_off = np.array([flux_sphere(Q, q_off, R, 150) for R in radii])\n\n    fig, axes = plt.subplots(1, 3, figsize=(17, 5.2))\n    ax = axes[0]\n    x = np.linspace(-2, 2, 40)\n    X, Y = np.meshgrid(x, x)\n    E = E_field(Q, origin, np.stack([X, Y, np.zeros_like(X)], -1) + 1e-9)\n    ax.streamplot(X, Y, E[..., 0], E[..., 1], color=np.log10(np.linalg.norm(E, axis=-1)),\n                  cmap=\"viridis\", density=1.3)\n    for R in (0.5, 1.0, 1.5):\n        ax.add_patch(plt.Circle((0, 0), R, fill=False, ec=\"tab:red\", lw=1.5, ls=\"--\"))\n    ax.plot(0, 0, \"ro\", ms=9)\n    ax.set_aspect(\"equal\"); ax.set_xlabel(\"x (m)\"); ax.set_ylabel(\"y (m)\")\n    ax.set_title(\"E-field lines with Gaussian spheres (z = 0)\")\n\n    ax = axes[1]\n    ax.semilogy(radii, K * Q / radii**2, \"m-\", lw=2)\n    ax.set_xlabel(\"R (m)\"); ax.set_ylabel(\"|E| at surface (V/m)\")\n    ax.set_title(\"Field magnitude on the sphere, |E| \u221d 1/R\u00b2\"); ax.grid(alpha=0.3, which=\"both\")\n\n    ax = axes[2]\n    ax.plot(radii, flux_c, \"bo\", ms=4, label=\"Numerical flux, charge at centre\")\n    ax.plot(radii, flux_off, \"c-\", lw=2, label=\"Numerical flux, charge at x = 2 m\")\n    ax.axhline(theory, color=\"g\", ls=\"--\", lw=2, label=\"Theory Q/\u03b50\")\n    ax.set_xlabel(\"Sphere radius R (m)\"); ax.set_ylabel(\"Flux (V\u00b7m)\")\n    ax.set_ylim(-10, theory * 1.25)\n    ax.set_title(\"Flux vs radius\"); ax.grid(alpha=0.3); ax.legend(loc=\"lower right\")\n    plt.tight_layout()\n    plt.savefig(\"sim1_gauss_flux.png\", dpi=130)\n    print(\"Displaced-charge check: flux is 0 for R < 2 m and Q/eps0 for R > 2 m.\")\n    print(\"Plot saved: sim1_gauss_flux.png\")\n\n\nif __name__ == \"__main__\":\n    main()\n", "\"\"\"\nSimulation 2 - Displacement current in a parallel-plate capacitor.\n\nA sinusoidal voltage V(t) = V0 sin(wt) drives an air-filled parallel-plate capacitor.\nE = V/d, D = eps E, and the displacement current is Id = A dD/dt = eps A/d * dV/dt.\nParameters: V0 = 10 V, d = 1 mm, eps_r = 1, base area 0.01 m^2 (10 cm x 10 cm), base f = 1 MHz.\nRun:  python sim2_displacement_current.py\n\"\"\"\nimport numpy as np\nimport matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\n\nEPS0 = 8.854187817e-12\nMU0 = 4e-7 * np.pi\nV0, d, eps_r = 10.0, 1e-3, 1.0\nA0, f0 = 0.01, 1e6\neps = EPS0 * eps_r\n\n\ndef displacement_current(t, f, A):\n    w = 2 * np.pi * f\n    E = V0 * np.sin(w * t) / d\n    Jd = eps * V0 * w * np.cos(w * t) / d   # dD/dt\n    return E, Jd, Jd * A\n\n\ndef main():\n    print(\"=\" * 66)\n    print(\"SIMULATION 2: Displacement current in a parallel-plate capacitor\")\n    print(\"=\" * 66)\n    C = eps * A0 / d\n    print(f\"V0 = {V0} V, d = {d*1e3} mm, A = {A0} m^2, eps_r = {eps_r}  ->  C = {C*1e12:.2f} pF\")\n    print(f\"Peak E = V0/d = {V0/d:.0f} V/m\\n\")\n\n    t = np.linspace(0, 2 / f0, 1000)\n    E, Jd, Id = displacement_current(t, f0, A0)\n    Ic = C * np.gradient(V0 * np.sin(2 * np.pi * f0 * t), t)   # conduction current in the wires\n    print(f\"At f = 1 MHz: peak Jd = {Jd.max():.4f} A/m^2, peak Id = {Id.max()*1e3:.4f} mA\")\n    print(f\"Peak wire conduction current C dV/dt = {Ic.max()*1e3:.4f} mA (equal to Id, as Maxwell predicts)\")\n    # Magnetic field between the plates at radius r (circular-equivalent plate radius)\n    a = np.sqrt(A0 / np.pi)\n    print(f\"Peak B at the plate edge (r = {a*100:.2f} cm): {MU0 * Id.max() / (2*np.pi*a)*1e9:.3f} nT\\n\")\n\n    freqs = np.logspace(2, 9, 200)\n    Id_f = eps * A0 * V0 * 2 * np.pi * freqs / d\n    areas = np.linspace(1e-4, 0.05, 200)\n    Id_A = eps * areas * V0 * 2 * np.pi * f0 / d\n\n    print(\"Effect of frequency (A = 0.01 m^2):\")\n    for f in [1e3, 1e5, 1e6, 1e8, 1e9]:\n        print(f\"  f = {f:10.0e} Hz  ->  Id,peak = {eps*A0*V0*2*np.pi*f/d:.4e} A\")\n    print(\"Effect of plate area (f = 1 MHz):\")\n    for A in [0.001, 0.005, 0.01, 0.02, 0.05]:\n        print(f\"  A = {A:6.3f} m^2   ->  Id,peak = {eps*A*V0*2*np.pi*f0/d*1e3:.4f} mA\")\n    print(\"Id is proportional to both f and A (doubling either doubles Id).\")\n\n    fig, axes = plt.subplots(2, 2, figsize=(13, 9))\n    ax = axes[0, 0]\n    ax.plot(t * 1e6, E / 1e3, \"b\", label=\"E (kV/m)\")\n    ax2 = ax.twinx()\n    ax2.plot(t * 1e6, Id * 1e3, \"r\", label=\"Id (mA)\")\n    ax.set_xlabel(\"t (\u00b5s)\"); ax.set_ylabel(\"E (kV/m)\", color=\"b\"); ax2.set_ylabel(\"Id (mA)\", color=\"r\")\n    ax.set_title(\"E and Id vs time at 1 MHz (Id leads E by 90\u00b0)\"); ax.grid(alpha=0.3)\n\n    ax = axes[0, 1]\n    x = np.linspace(-0.08, 0.08, 25); y = np.linspace(-2e-3, 2e-3, 25)\n    X, Y = np.meshgrid(x, y)\n    plate = np.sqrt(A0) / 2\n    Ey = np.where((np.abs(X) < plate) & (np.abs(Y) < d / 2), -V0 / d, 0.0)\n    ax.quiver(X * 100, Y * 1e3, np.zeros_like(Ey), Ey, color=\"tab:blue\", scale=2e5)\n    for yp in (d / 2, -d / 2):\n        ax.plot([-plate * 100, plate * 100], [yp * 1e3] * 2, \"k\", lw=4)\n    ax.text(0, 0.65, \"+V\", ha=\"center\"); ax.text(0, -0.8, \"\u2212V\", ha=\"center\")\n    ax.set_xlabel(\"x (cm)\"); ax.set_ylabel(\"y (mm)\")\n    ax.set_title(\"Uniform E between the plates (instant of peak V)\")\n\n    ax = axes[1, 0]\n    ax.loglog(freqs, Id_f, \"g\", lw=2)\n    ax.set_xlabel(\"Frequency (Hz)\"); ax.set_ylabel(\"Peak Id (A)\")\n    ax.set_title(\"Displacement current vs frequency (A = 0.01 m\u00b2)\"); ax.grid(alpha=0.3, which=\"both\")\n\n    ax = axes[1, 1]\n    ax.plot(areas * 1e4, Id_A * 1e3, \"m\", lw=2)\n    ax.set_xlabel(\"Plate area (cm\u00b2)\"); ax.set_ylabel(\"Peak Id (mA)\")\n    ax.set_title(\"Displacement current vs plate area (f = 1 MHz)\"); ax.grid(alpha=0.3)\n    plt.tight_layout()\n    plt.savefig(\"sim2_displacement_current.png\", dpi=130)\n    print(\"Plot saved: sim2_displacement_current.png\")\n\n\nif __name__ == \"__main__\":\n    main()\n", "\"\"\"\nSimulation 3 - Lossy transmission line from its RLGC parameters.\n\ngamma = sqrt((R + jwL)(G + jwC)) = alpha + j beta,  Z0 = sqrt((R + jwL)/(G + jwC))\nParameters (typical RG-58-like coax): R = 0.1 ohm/m, L = 250 nH/m, G = 1e-5 S/m, C = 100 pF/m.\nWith constant R and G the attenuation saturates at R/(2Z0) + G Z0/2, so a realistic model is\nalso run: skin-effect R(f) = R*sqrt(f/1 MHz) (min R) and dielectric G(f) = G + wC tan(delta).\nRun:  python sim3_lossy_tline.py\n\"\"\"\nimport numpy as np\nimport matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\n\nR, L, G, C = 0.1, 250e-9, 1e-5, 100e-12\nTAN_D = 2e-4  # polyethylene-like dielectric loss tangent\n\n\ndef line_params(f, realistic=False):\n    w = 2 * np.pi * f\n    Rf = np.maximum(R, R * np.sqrt(f / 1e6)) if realistic else R\n    Gf = G + w * C * TAN_D if realistic else G\n    Z, Y = Rf + 1j * w * L, Gf + 1j * w * C\n    gamma = np.sqrt(Z * Y)\n    return gamma.real, gamma.imag, np.sqrt(Z / Y)\n\n\ndef main():\n    print(\"=\" * 66)\n    print(\"SIMULATION 3: Lossy transmission line (RLGC model)\")\n    print(\"=\" * 66)\n    print(f\"R = {R} ohm/m, L = {L*1e9:.0f} nH/m, G = {G} S/m, C = {C*1e12:.0f} pF/m\")\n    print(f\"Lossless Z0 = sqrt(L/C) = {np.sqrt(L/C):.2f} ohm, v = 1/sqrt(LC) = {1/np.sqrt(L*C):.3e} m/s\\n\")\n    print(f\"{'f (Hz)':>10} {'alpha (Np/m)':>13} {'alpha (dB/m)':>13} {'beta (rad/m)':>13} {'|Z0| (ohm)':>11} {'v_p (m/s)':>11}\")\n    for f in [1e3, 1e5, 1e6, 1e7, 1e8, 1e9]:\n        a, b, Z0 = line_params(f)\n        print(f\"{f:10.0e} {a:13.4e} {a*8.686:13.4e} {b:13.4e} {abs(Z0):11.2f} {2*np.pi*f/b:11.3e}\")\n    print(\"Low-loss limit: alpha ~ R/(2Z0) + G Z0/2 =\", f\"{R/(2*np.sqrt(L/C)) + G*np.sqrt(L/C)/2:.4e} Np/m\")\n    print(\"With constant R and G, alpha stops rising once wL >> R (above ~1 MHz).\")\n\n    print(f\"\\nRealistic model (skin effect + dielectric loss, tan d = {TAN_D}):\")\n    print(f\"{'f (Hz)':>10} {'alpha (dB/m)':>13} {'dB per 100 m':>13}\")\n    for f in [1e6, 1e7, 1e8, 1e9]:\n        a, _, _ = line_params(f, True)\n        print(f\"{f:10.0e} {a*8.686:13.4e} {a*868.6:13.2f}\")\n\n    print(f\"\\nEffect of length (realistic model):\")\n    print(f\"{'l (m)':>6} {'f (MHz)':>8} {'atten (dB)':>11} {'|V/V0|':>8} {'phase (deg)':>12}\")\n    for f in [10e6, 100e6, 1e9]:\n        a, b, _ = line_params(f, True)\n        for l in [1, 10, 50, 100]:\n            print(f\"{l:6d} {f/1e6:8.0f} {a*l*8.686:11.3f} {np.exp(-a*l):8.4f} {np.degrees(b*l):12.1f}\")\n    print(\"Attenuation (dB) and phase shift both grow linearly with length;\"\n          \" both also increase with frequency.\")\n\n    freqs = np.logspace(3, 9.5, 400)\n    alpha, beta, Z0f = line_params(freqs)\n    alpha_r, _, _ = line_params(freqs, True)\n    lengths = np.linspace(0, 100, 400)\n\n    fig, axes = plt.subplots(2, 2, figsize=(13, 9))\n    ax = axes[0, 0]\n    ax.loglog(freqs, alpha * 8.686, \"r\", lw=2, label=\"Constant R, G\")\n    ax.loglog(freqs, alpha_r * 8.686, \"b--\", lw=2, label=\"Skin effect + dielectric loss\")\n    ax.set_xlabel(\"Frequency (Hz)\"); ax.set_ylabel(\"Attenuation \u03b1 (dB/m)\")\n    ax.set_title(\"Attenuation constant vs frequency\"); ax.grid(alpha=0.3, which=\"both\"); ax.legend()\n\n    ax = axes[0, 1]\n    ax.loglog(freqs, beta, \"b\", lw=2, label=\"\u03b2\")\n    ax2 = ax.twinx()\n    ax2.semilogx(freqs, np.abs(Z0f), \"k--\", label=\"|Z0|\")\n    ax.set_xlabel(\"Frequency (Hz)\"); ax.set_ylabel(\"\u03b2 (rad/m)\", color=\"b\"); ax2.set_ylabel(\"|Z0| (\u03a9)\")\n    ax.set_title(\"Phase constant and characteristic impedance\"); ax.grid(alpha=0.3, which=\"both\")\n\n    ax = axes[1, 0]\n    for f in [1e6, 1e7, 1e8, 1e9]:\n        a, _, _ = line_params(f, True)\n        ax.plot(lengths, a * lengths * 8.686, lw=2, label=f\"{f/1e6:g} MHz\")\n    ax.set_xlabel(\"Line length (m)\"); ax.set_ylabel(\"Total attenuation (dB)\")\n    ax.set_title(\"Attenuation vs length (realistic model)\"); ax.grid(alpha=0.3); ax.legend()\n\n    ax = axes[1, 1]\n    for f in [1e6, 1e7, 1e8]:\n        a, b, _ = line_params(f, True)\n        z = np.linspace(0, 20, 2000)\n        ax.plot(z, np.exp(-a * z) * np.cos(b * z), lw=1.4, label=f\"{f/1e6:g} MHz\")\n    ax.set_xlabel(\"Position z (m)\"); ax.set_ylabel(\"Re{V(z)/V0}\")\n    ax.set_title(\"Travelling voltage wave along the line (phase shift \u03b2z)\")\n    ax.grid(alpha=0.3); ax.legend()\n    plt.tight_layout()\n    plt.savefig(\"sim3_lossy_tline.png\", dpi=130)\n    print(\"Plot saved: sim3_lossy_tline.png\")\n\n\nif __name__ == \"__main__\":\n    main()\n", "\"\"\"\nSimulation 4 - Quarter-wave transformer matching a 50 ohm line to a 100 ohm load.\n\nZ_T = sqrt(Z0 * ZL); section is lambda/4 long at the design frequency f0 = 1 GHz.\nZin(f) = Z_T (ZL + j Z_T tan(beta l)) / (Z_T + j ZL tan(beta l)),  beta l = (pi/2)(f/f0)\nRun:  python sim4_quarter_wave.py\n\"\"\"\nimport numpy as np\nimport matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\n\nZ0, ZL, f0 = 50.0, 100.0, 1e9\nZT = np.sqrt(Z0 * ZL)\n\n\ndef gamma_in(f):\n    t = np.tan(np.pi / 2 * f / f0)\n    Zin = ZT * (ZL + 1j * ZT * t) / (ZT + 1j * ZL * t)\n    return Zin, (Zin - Z0) / (Zin + Z0)\n\n\ndef main():\n    print(\"=\" * 66)\n    print(\"SIMULATION 4: Quarter-wave transformer (50 ohm line -> 100 ohm load)\")\n    print(\"=\" * 66)\n    print(f\"Required transformer impedance Z_T = sqrt(50 x 100) = {ZT:.3f} ohm\")\n    print(f\"Section length = lambda/4 = {3e8/f0/4*100:.2f} cm at f0 = 1 GHz (air)\")\n    g_un = (ZL - Z0) / (ZL + Z0)\n    print(f\"Without transformer: |Gamma| = {abs(g_un):.4f}, VSWR = {(1+abs(g_un))/(1-abs(g_un)):.3f},\"\n          f\" return loss = {-20*np.log10(abs(g_un)):.2f} dB\\n\")\n\n    print(f\"{'f (GHz)':>8} {'Zin (ohm)':>22} {'|Gamma|':>9} {'VSWR':>7} {'RL (dB)':>8}\")\n    for f in [0.5, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5]:\n        Zin, g = gamma_in(f * 1e9)\n        rl = f\"{-20 * np.log10(abs(g)):8.2f}\" if abs(g) > 1e-9 else \"     inf\"\n        print(f\"{f:8.2f} {Zin.real:10.2f}{Zin.imag:+10.2f}j {abs(g):9.4f} {(1+abs(g))/(1-abs(g)):7.3f} {rl}\")\n\n    f = np.linspace(0.01, 2, 2000) * 1e9\n    Zin, g = gamma_in(f)\n    mag = np.abs(g)\n    vswr = (1 + mag) / (1 - mag)\n    for lim, name in [(0.1, \"|Gamma| < 0.1\"), (0.2, \"|Gamma| < 0.2\")]:\n        band = f[mag < lim]\n        print(f\"Bandwidth for {name}: {band.min()/1e9:.3f}-{band.max()/1e9:.3f} GHz\"\n              f\" ({(band.max()-band.min())/f0*100:.1f}% fractional)\")\n    print(\"Perfect match (|Gamma| = 0) at 1 GHz and odd multiples; mismatch returns at 0 and 2 GHz.\")\n\n    fig, axes = plt.subplots(1, 3, figsize=(17, 5))\n    ax = axes[0]\n    ax.plot(f / 1e9, mag, \"b\", lw=2, label=\"With \u03bb/4 transformer\")\n    ax.axhline(abs(g_un), color=\"r\", ls=\"--\", label=\"No transformer\")\n    ax.axhline(0.2, color=\"gray\", ls=\":\", label=\"|\u0393| = 0.2\")\n    ax.set_xlabel(\"Frequency (GHz)\"); ax.set_ylabel(\"|\u0393|\"); ax.set_title(\"Reflection coefficient\")\n    ax.grid(alpha=0.3); ax.legend()\n\n    ax = axes[1]\n    ax.plot(f / 1e9, np.minimum(vswr, 5), \"g\", lw=2)\n    ax.axhline(2, color=\"gray\", ls=\":\", label=\"VSWR = 2\")\n    ax.set_xlabel(\"Frequency (GHz)\"); ax.set_ylabel(\"VSWR\"); ax.set_title(\"VSWR vs frequency\")\n    ax.grid(alpha=0.3); ax.legend()\n\n    ax = axes[2]\n    ax.plot(f / 1e9, Zin.real, \"b\", lw=2, label=\"Re{Zin}\")\n    ax.plot(f / 1e9, Zin.imag, \"r\", lw=2, label=\"Im{Zin}\")\n    ax.axhline(50, color=\"k\", ls=\":\", label=\"50 \u03a9\")\n    ax.set_xlabel(\"Frequency (GHz)\"); ax.set_ylabel(\"\u03a9\"); ax.set_title(\"Input impedance seen by 50 \u03a9 line\")\n    ax.grid(alpha=0.3); ax.legend()\n    plt.tight_layout()\n    plt.savefig(\"sim4_quarter_wave.png\", dpi=130)\n    print(\"Plot saved: sim4_quarter_wave.png\")\n\n\nif __name__ == \"__main__\":\n    main()\n", "\"\"\"\nSimulation 5 - Smith chart analysis of ZL = 75 + j25 ohm on a 50 ohm lossless line at 1 GHz.\nRun:  python sim5_smith_chart.py\n\"\"\"\nimport numpy as np\nimport matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\n\nf, Z0, ZL = 1e9, 50.0, 75 + 25j\n\n\ndef draw_smith(ax):\n    t = np.linspace(0, 2 * np.pi, 400)\n    ax.plot(np.cos(t), np.sin(t), \"k\", lw=1.5)\n    for r in [0, 0.2, 0.5, 1, 2, 5]:\n        c, rad = r / (1 + r), 1 / (1 + r)\n        ax.plot(c + rad * np.cos(t), rad * np.sin(t), color=\"gray\", lw=0.6)\n        ax.text(c - rad + 0.01, 0.02, f\"{r:g}\", fontsize=7, color=\"gray\")\n    for x in [0.2, 0.5, 1, 2, 5]:\n        for s in (1, -1):\n            z = 1j * s * x + np.linspace(0, 50, 3000) ** 2 / 50\n            g = (z - 1) / (z + 1)\n            g = g[np.abs(g) <= 1.0001]\n            ax.plot(g.real, g.imag, color=\"gray\", lw=0.6)\n            gt = (1j * s * x - 1) / (1j * s * x + 1)\n            ax.text(gt.real * 1.07, gt.imag * 1.07, f\"{s*x:+g}j\", fontsize=7, color=\"gray\",\n                    ha=\"center\", va=\"center\")\n    ax.axhline(0, color=\"gray\", lw=0.6)\n    ax.set_aspect(\"equal\"); ax.set_xlim(-1.15, 1.15); ax.set_ylim(-1.15, 1.15); ax.axis(\"off\")\n\n\ndef main():\n    print(\"=\" * 66)\n    print(\"SIMULATION 5: Smith chart, ZL = 75 + j25 ohm, Z0 = 50 ohm, f = 1 GHz\")\n    print(\"=\" * 66)\n    zL = ZL / Z0\n    print(f\"(1) Normalized load impedance zL = ZL/Z0 = {zL.real:.2f} {zL.imag:+.2f}j\")\n    G = (zL - 1) / (zL + 1)\n    mag, ang = abs(G), np.degrees(np.angle(G))\n    print(f\"(2) Reflection coefficient Gamma = (zL-1)/(zL+1) = {G.real:.4f} {G.imag:+.4f}j\")\n    print(f\"    |Gamma| = {mag:.4f}, angle = {ang:.2f} deg\")\n    S = (1 + mag) / (1 - mag)\n    print(f\"(3) VSWR = (1+|Gamma|)/(1-|Gamma|) = {S:.4f}\")\n    print(f\"    Return loss = {-20*np.log10(mag):.2f} dB, mismatch loss = {-10*np.log10(1-mag**2):.3f} dB,\"\n          f\" power reflected = {mag**2*100:.2f}%\")\n    lam = 3e8 / f\n    d_max = (np.radians(ang) % (2 * np.pi)) / (4 * np.pi) * lam\n    print(f\"    lambda = {lam*100:.1f} cm; first voltage maximum {d_max*100:.2f} cm from the load\"\n          f\" (Zmax = {Z0*S:.2f} ohm), first minimum {(d_max+lam/4)*100:.2f} cm (Zmin = {Z0/S:.2f} ohm)\")\n    print(\"(4)/(5) zL, Gamma and the constant-VSWR circle are plotted in sim5_smith_chart.png\")\n    print(f\"(6) Matched? {'YES' if mag < 1e-6 else 'NO'}. A match needs ZL = Z0 (zL = 1, Gamma = 0, VSWR = 1).\")\n    print(f\"    Here Gamma = {mag:.3f} and VSWR = {S:.2f}, so {mag**2*100:.1f}% of incident power is reflected\")\n    print(\"    and a standing wave forms. The point lies in the upper half (inductive, x = +0.5) on the\")\n    print(\"    r = 1.5 circle, away from the chart centre. It could be matched with a quarter-wave\")\n    print(\"    transformer at a voltage max/min, or a single-stub tuner where the VSWR circle meets r = 1.\")\n\n    fig, ax = plt.subplots(figsize=(8.5, 8.5))\n    draw_smith(ax)\n    t = np.linspace(0, 2 * np.pi, 400)\n    ax.plot(mag * np.cos(t), mag * np.sin(t), \"r--\", lw=2, label=f\"Constant-VSWR circle (VSWR = {S:.2f})\")\n    ax.annotate(\"\", xy=(G.real, G.imag), xytext=(0, 0),\n                arrowprops=dict(arrowstyle=\"->\", color=\"blue\", lw=2))\n    ax.plot(G.real, G.imag, \"bo\", ms=10, label=f\"zL = {zL.real:.2f}+j{zL.imag:.2f}  (\u0393 = {mag:.3f}\u2220{ang:.1f}\u00b0)\")\n    ax.plot(0, 0, \"g*\", ms=14, label=\"Matched point (z = 1, \u0393 = 0)\")\n    ax.plot([mag], [0], \"ms\", ms=8, label=f\"r = VSWR = {S:.2f} (Vmax)\")\n    ax.set_title(\"Smith chart: ZL = 75 + j25 \u03a9 on a 50 \u03a9 line, f = 1 GHz\", fontsize=12)\n    ax.legend(loc=\"lower left\", fontsize=8.5, framealpha=0.95)\n    plt.tight_layout()\n    plt.savefig(\"sim5_smith_chart.png\", dpi=130)\n    print(\"Plot saved: sim5_smith_chart.png\")\n\n\nif __name__ == \"__main__\":\n    main()\n"];
   var FILES = ["sim1_gauss_flux.py", "sim2_displacement_current.py", "sim3_lossy_tline.py", "sim4_quarter_wave.py", "sim5_smith_chart.py"];
   var ALTS = ["Python output: field lines, |E| against R, and flux against R.", "Python output: E and I_d against time, field between the plates, I_d against frequency and against area.", "Python output: attenuation, phase constant and impedance against frequency, loss against length, and the decaying wave.", "Python output: |Γ|, VSWR and Z_in against frequency for the quarter-wave transformer.", "Python output: Smith chart with the 75 + j25 Ω load and its VSWR circle."];
-  var COL = { cyan: "#E3C27E", orange: "#E2774A", pink: "#E39AAE", green: "#9FD3A8", yellow: "#F1E0B5", grid: "#221F18", axis: "#3A3326", text: "#9A927F", faint: "#6B6455", white: "#ECE6D8" };
+  var COL = { cyan: "#5CC8FF", orange: "#FF5CA8", pink: "#B58CFF", green: "#7BE0B0", yellow: "#C3F0FF", grid: "#1A2230", axis: "#2E3A4D", text: "#8B96A8", faint: "#5D6778", white: "#E6EBF2" };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var EPS0 = 8.854187817e-12, MU0 = 4e-7 * Math.PI, K = 1 / (4 * Math.PI * EPS0);
   var $ = function (id) { return document.getElementById(id); };
@@ -668,7 +674,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     var rays = 24, outN = 0, inN = 0, Lr = 30, marks = [];
     for (var k = 0; k < rays; k++) {
       var a = (k + .5) / rays * 2 * Math.PI, dx = Math.cos(a), dy = Math.sin(a);
-      line(c, [[X(qx), Y(0)], [X(qx + dx * Lr), Y(dy * Lr)]], "rgba(227,194,126,0.5)", 1.3, null, 6);
+      line(c, [[X(qx), Y(0)], [X(qx + dx * Lr), Y(dy * Lr)]], "rgba(92,200,255,0.5)", 1.3, null, 6);
       /* ray-circle intersections: |q + t d|^2 = R^2 */
       var b = qx * dx, cc = qx * qx - R * R, disc = b * b - cc;
       if (disc > 0) {
@@ -678,7 +684,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     }
     c.save(); c.setLineDash([6, 5]); c.strokeStyle = COL.orange; c.lineWidth = 2; glow(c, COL.orange, 10); c.beginPath(); c.arc(X(0), Y(0), R * sc, 0, 2 * Math.PI); c.stroke(); c.restore();
     marks.forEach(function (m) { dot(c, m[0], m[1], 3.6, m[2] ? COL.green : COL.orange, 8); });
-    dot(c, X(qx), Y(0), 9, COL.pink, 22); c.fillStyle = "#0B0A09"; c.font = "bold 12px 'JetBrains Mono', monospace"; c.textAlign = "center"; c.fillText("+", X(qx), Y(0) + 4);
+    dot(c, X(qx), Y(0), 9, COL.pink, 22); c.fillStyle = "#0A0D12"; c.font = "bold 12px 'JetBrains Mono', monospace"; c.textAlign = "center"; c.fillText("+", X(qx), Y(0) + 4);
     c.fillStyle = COL.text; c.font = "11px 'JetBrains Mono', monospace"; c.textAlign = "left"; c.fillText("1 m grid", 10, g.h - 10);
     $("q1lines").textContent = outN + " out / " + inN + " in";
     /* flux vs R plot */
@@ -715,13 +721,13 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     /* displacement-current glow */
     var gl = c.createLinearGradient(0, yTop, 0, yBot);
     var alpha = Math.abs(cI) * 0.55;
-    gl.addColorStop(0, "rgba(226,119,74,0)"); gl.addColorStop(.5, "rgba(226,119,74," + alpha.toFixed(3) + ")"); gl.addColorStop(1, "rgba(226,119,74,0)");
+    gl.addColorStop(0, "rgba(255,92,168,0)"); gl.addColorStop(.5, "rgba(255,92,168," + alpha.toFixed(3) + ")"); gl.addColorStop(1, "rgba(255,92,168,0)");
     c.fillStyle = gl; c.fillRect(x0, yTop, pw, gap);
     /* wires */
-    c.strokeStyle = "#5C5340"; c.lineWidth = 2;
+    c.strokeStyle = "#3C4A60"; c.lineWidth = 2;
     c.beginPath(); c.moveTo(w / 2, yTop - 6); c.lineTo(w / 2, 14); c.lineTo(w - 26, 14); c.lineTo(w - 26, h - 14); c.lineTo(w / 2, h - 14); c.lineTo(w / 2, yBot + 6); c.stroke();
     /* source */
-    dot(c, w - 26, h / 2, 16, "#0B0A09"); c.strokeStyle = "#8F8670"; c.beginPath(); c.arc(w - 26, h / 2, 16, 0, 2 * Math.PI); c.stroke();
+    dot(c, w - 26, h / 2, 16, "#0A0D12"); c.strokeStyle = "#7F8BA0"; c.beginPath(); c.arc(w - 26, h / 2, 16, 0, 2 * Math.PI); c.stroke();
     c.beginPath(); for (var i = 0; i <= 20; i++) { var xx = w - 36 + i, yy = h / 2 - 6 * Math.sin(i / 20 * 2 * Math.PI); i ? c.lineTo(xx, yy) : c.moveTo(xx, yy); } c.stroke();
     /* current dots in wire (conduction current) */
     var nDots = 10, travel = (t * 0.45 * 2) % 1;
@@ -730,10 +736,10 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
       var u = ((k / nDots) + (reduce ? 0 : Math.sin(ph) * 0.06)) % 1, Ldist = u * pathLen, px, py;
       var seg1 = w - 26 - w / 2, seg2 = h - 28;
       if (Ldist < seg1) { px = w / 2 + Ldist; py = 14; } else if (Ldist < seg1 + seg2) { px = w - 26; py = 14 + (Ldist - seg1); } else { px = w - 26 - (Ldist - seg1 - seg2); py = h - 14; }
-      dot(c, px, py, 2.4, "rgba(241,224,181," + (0.25 + 0.75 * Math.abs(cI)).toFixed(2) + ")", 6);
+      dot(c, px, py, 2.4, "rgba(195,240,255," + (0.25 + 0.75 * Math.abs(cI)).toFixed(2) + ")", 6);
     }
     /* plates */
-    c.save(); c.fillStyle = "#E8D7AE"; glow(c, "#D8B878", 10); c.fillRect(x0, yTop - 6, pw, 6); c.fillRect(x0, yBot, pw, 6); c.restore();
+    c.save(); c.fillStyle = "#D6E6F5"; glow(c, "#5CC8FF", 10); c.fillRect(x0, yTop - 6, pw, 6); c.fillRect(x0, yBot, pw, 6); c.restore();
     c.fillStyle = COL.text; c.font = "11px 'JetBrains Mono', monospace"; c.textAlign = "left";
     c.fillText((sE >= 0 ? "+" : "−") + " plate", x0, yTop - 12); c.fillText((sE >= 0 ? "−" : "+") + " plate", x0, yBot + 20);
     /* E arrows */
@@ -752,7 +758,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     for (var n = 0; n <= 300; n++) { var tt = n / 300 * 2; e.push([fr.sx(tt), fr.sy(Math.sin(2 * Math.PI * tt))]); id.push([fr.sx(tt), fr.sy(Math.cos(2 * Math.PI * tt))]); }
     line(p.c, e, COL.cyan, 2, null, 8); line(p.c, id, COL.orange, 2, null, 8);
     var cur = ((ph / (2 * Math.PI)) % 2 + 2) % 2;
-    p.c.strokeStyle = "rgba(236,230,216,.35)"; p.c.beginPath(); p.c.moveTo(fr.sx(cur), fr.T); p.c.lineTo(fr.sx(cur), fr.T + fr.H); p.c.stroke();
+    p.c.strokeStyle = "rgba(230,235,242,.35)"; p.c.beginPath(); p.c.moveTo(fr.sx(cur), fr.T); p.c.lineTo(fr.sx(cur), fr.T + fr.H); p.c.stroke();
     dot(p.c, fr.sx(cur), fr.sy(Math.sin(2 * Math.PI * cur)), 4, COL.cyan, 10); dot(p.c, fr.sx(cur), fr.sy(Math.cos(2 * Math.PI * cur)), 4, COL.orange, 10);
   }
 
@@ -788,19 +794,19 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     var zwin = Math.min(s3.l, 5 * lam), padL = 54, padR = 54, W = w - padL - padR, ym = h * .44, amp = h * .3;
     function X(z) { return padL + z / zwin * W; }
     /* cable body */
-    c.fillStyle = "#17140F"; c.fillRect(padL, ym - amp - 10, W, amp * 2 + 20);
+    c.fillStyle = "#111824"; c.fillRect(padL, ym - amp - 10, W, amp * 2 + 20);
     c.strokeStyle = COL.grid; for (var q = 0; q <= 10; q++) { var xx = Math.round(padL + q / 10 * W) + .5; c.beginPath(); c.moveTo(xx, ym - amp - 10); c.lineTo(xx, ym + amp + 10); c.stroke(); }
     /* envelope (scaled so decay over the window is visible against the full-length decay) */
     var env = [], envN = [], wave = [], ph = reduce ? 0 : t * 2 * Math.PI * 0.5;
     for (var i = 0; i <= 600; i++) { var z = i / 600 * zwin, e = Math.exp(-P.a * z); env.push([X(z), ym - amp * e]); envN.push([X(z), ym + amp * e]); wave.push([X(z), ym - amp * e * Math.cos(P.b * z - ph)]); }
-    line(c, env, "rgba(226,119,74,.6)", 1.2, [4, 4]); line(c, envN, "rgba(226,119,74,.6)", 1.2, [4, 4]);
+    line(c, env, "rgba(255,92,168,.6)", 1.2, [4, 4]); line(c, envN, "rgba(255,92,168,.6)", 1.2, [4, 4]);
     line(c, wave, COL.cyan, 2.2, null, 12);
     c.fillStyle = COL.text; c.font = "11px 'JetBrains Mono', monospace"; c.textAlign = "left";
     c.fillText("source", 6, ym + 4); c.textAlign = "right"; c.fillText(zwin < s3.l ? "→" : "load", w - 6, ym + 4);
     c.textAlign = "left"; c.fillText("showing z = 0 to " + (zwin >= 1 ? fx(zwin, 2) + " m" : fx(zwin * 100, 1) + " cm") + (zwin < s3.l ? " (first 5 wavelengths)" : " (whole line)"), padL, ym - amp - 18);
     /* remaining-signal bar */
     var by = h - 34, bw = W;
-    c.fillStyle = "#221E16"; c.fillRect(padL, by, bw, 12);
+    c.fillStyle = "#1A2230"; c.fillRect(padL, by, bw, 12);
     var grd = c.createLinearGradient(padL, 0, padL + bw, 0); grd.addColorStop(0, COL.cyan); grd.addColorStop(1, COL.pink);
     c.save(); c.fillStyle = grd; glow(c, COL.cyan, 10); c.fillRect(padL, by, bw * s3.left, 12); c.restore();
     c.fillStyle = COL.text; c.fillText("amplitude left after " + s3.l + " m: " + fx(s3.left * 100, 1) + " %", padL, by - 6);
@@ -809,7 +815,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     var p = ctx2d($("q3plot")), fr = plotFrame(p, { x: [1e6, 1e9, 1], y: [1e-3, 1, 1], xticks: [[1e6, "1M"], [1e7, "10M"], [1e8, "100M"], [1e9, "1G Hz"]], yticks: [[1e-3, "0.001"], [1e-2, "0.01"], [1e-1, "0.1"], [1, "1"]], ylabel: "α (dB/m)" });
     var a = [], b = [];
     for (var i = 0; i <= 200; i++) { var f = Math.pow(10, 6 + 3 * i / 200); a.push([fr.sx(f), fr.sy(lineParams(f, false).a * 8.686)]); b.push([fr.sx(f), fr.sy(lineParams(f, true).a * 8.686)]); }
-    line(p.c, a, "#E2774A", 2, null, 6); line(p.c, b, "#E3C27E", 2, [6, 4], 6);
+    line(p.c, a, "#FF5CA8", 2, null, 6); line(p.c, b, "#5CC8FF", 2, [6, 4], 6);
     dot(p.c, fr.sx(s3.f), fr.sy(s3.P.a * 8.686), 5, COL.yellow, 12);
   }
 
@@ -843,13 +849,13 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     var g = ctx2d($("q4cv")), c = g.c, w = g.w, h = g.h, ym = h * .46;
     var x0 = 18, x1 = w * .5, x2 = w * .76, x3 = w - 60;
     function cable(a, b, th, col, label, sub) {
-      c.save(); var gr = c.createLinearGradient(0, ym - th / 2, 0, ym + th / 2); gr.addColorStop(0, col); gr.addColorStop(.5, "#0E0C09"); gr.addColorStop(1, col);
+      c.save(); var gr = c.createLinearGradient(0, ym - th / 2, 0, ym + th / 2); gr.addColorStop(0, col); gr.addColorStop(.5, "#0A0E16"); gr.addColorStop(1, col);
       c.fillStyle = gr; c.fillRect(a, ym - th / 2, b - a, th); c.restore();
       c.fillStyle = COL.white; c.font = "12px 'JetBrains Mono', monospace"; c.textAlign = "center"; c.fillText(label, (a + b) / 2, ym - th / 2 - 22);
       c.fillStyle = COL.text; c.font = "11px 'JetBrains Mono', monospace"; c.fillText(sub, (a + b) / 2, ym - th / 2 - 8);
     }
-    cable(x0, x1, 26, "#3A3020", "line", "Z₀ = " + s4.Z0 + " Ω");
-    cable(x1, x2, 34, "#4A2E22", "λ/4 section", "Z_T = " + fx(Math.sqrt(s4.Z0 * s4.ZL), 1) + " Ω");
+    cable(x0, x1, 26, "#1E3550", "line", "Z₀ = " + s4.Z0 + " Ω");
+    cable(x1, x2, 34, "#3A2350", "λ/4 section", "Z_T = " + fx(Math.sqrt(s4.Z0 * s4.ZL), 1) + " Ω");
     /* load resistor */
     c.save(); c.strokeStyle = COL.yellow; c.lineWidth = 2; glow(c, COL.yellow, 8); c.beginPath(); c.moveTo(x2, ym);
     var zz = 8, zw = (x3 - x2 - 16) / zz; c.lineTo(x2 + 8, ym);
@@ -861,7 +867,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     for (var k = 0; k < 6; k++) {
       var u = ((k / 6) + sp) % 1, xf = x0 + u * (x2 - x0); dot(c, xf, ym, 4.2, COL.cyan, 12);
       var ur = ((k / 6) + sp * 1.0) % 1, xr = x1 - ur * (x1 - x0); var rg = s4.r.g;
-      if (rg > 0.005) dot(c, xr, ym + 28, 2 + 7 * Math.min(1, rg / 0.5), "rgba(226,119,74," + Math.min(1, 0.25 + rg * 1.5).toFixed(2) + ")", 14);
+      if (rg > 0.005) dot(c, xr, ym + 28, 2 + 7 * Math.min(1, rg / 0.5), "rgba(255,92,168," + Math.min(1, 0.25 + rg * 1.5).toFixed(2) + ")", 14);
     }
     c.fillStyle = COL.text; c.textAlign = "left"; c.font = "11px 'JetBrains Mono', monospace";
     c.fillText("→ incident", x0, ym + 58); c.fillStyle = COL.orange; c.fillText("← reflected  |Γ| = " + fx(s4.r.g, 3), x0 + 96, ym + 58);
@@ -869,7 +875,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   }
   function drawPlot4() {
     var p = ctx2d($("q4plot")), fr = plotFrame(p, { x: [0, 2], y: [0, Math.max(0.5, s4.un * 1.2)], xticks: [[0, "0"], [.5, "0.5"], [1, "1"], [1.5, "1.5"], [2, "2 GHz"]], yticks: [[0, "0"], [.1, "0.1"], [.3, "0.3"], [.5, "0.5"]], ylabel: "|Γ|" });
-    if (s4.lo !== null && s4.ZL !== s4.Z0) { p.c.fillStyle = "rgba(159,211,168,.12)"; p.c.fillRect(fr.sx(s4.lo), fr.T, fr.sx(s4.hi) - fr.sx(s4.lo), fr.H); }
+    if (s4.lo !== null && s4.ZL !== s4.Z0) { p.c.fillStyle = "rgba(123,224,176,.12)"; p.c.fillRect(fr.sx(s4.lo), fr.T, fr.sx(s4.hi) - fr.sx(s4.lo), fr.H); }
     line(p.c, [[fr.sx(0), fr.sy(s4.un)], [fr.sx(2), fr.sy(s4.un)]], COL.orange, 1.6, [6, 4]);
     var pts = []; for (var i = 0; i <= 400; i++) { var f = 0.01 + i / 400 * 1.99; pts.push([fr.sx(f), fr.sy(gin(f, s4.Z0, s4.ZL).g)]); }
     line(p.c, pts, COL.cyan, 2.2, null, 10);
@@ -901,13 +907,13 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     if (sz < 80) return;
     s5geo = { cx: cx, cy: cy, R: Rr };
     function P(gr, gi) { return [cx + gr * Rr, cy - gi * Rr]; }
-    c.save(); c.beginPath(); c.arc(cx, cy, Rr, 0, 2 * Math.PI); c.fillStyle = "#100E0B"; c.fill(); c.clip();
-    c.strokeStyle = "#2E2920"; c.lineWidth = 1;
+    c.save(); c.beginPath(); c.arc(cx, cy, Rr, 0, 2 * Math.PI); c.fillStyle = "#0C111A"; c.fill(); c.clip();
+    c.strokeStyle = "#202A3A"; c.lineWidth = 1;
     [0.2, 0.5, 1, 2, 5].forEach(function (r) { var ce = r / (1 + r), rad = 1 / (1 + r), p = P(ce, 0); c.beginPath(); c.arc(p[0], p[1], rad * Rr, 0, 2 * Math.PI); c.stroke(); });
     [0.2, 0.5, 1, 2, 5].forEach(function (x) { [1, -1].forEach(function (s) { var p = P(1, s / x); c.beginPath(); c.arc(p[0], p[1], Rr / x, 0, 2 * Math.PI); c.stroke(); }); });
     c.beginPath(); c.moveTo(cx - Rr, cy); c.lineTo(cx + Rr, cy); c.stroke();
     c.restore();
-    c.save(); c.strokeStyle = "#8F8670"; c.lineWidth = 1.6; c.beginPath(); c.arc(cx, cy, Rr, 0, 2 * Math.PI); c.stroke(); c.restore();
+    c.save(); c.strokeStyle = "#7F8BA0"; c.lineWidth = 1.6; c.beginPath(); c.arc(cx, cy, Rr, 0, 2 * Math.PI); c.stroke(); c.restore();
     c.fillStyle = COL.faint; c.font = "10px 'JetBrains Mono', monospace"; c.textAlign = "center";
     [0.2, 0.5, 1, 2, 5].forEach(function (r) { var p = P((r - 1) / (r + 1), 0); c.fillText(String(r), p[0], p[1] + 12); });
     c.fillText("+jx inductive", cx, cy - Rr * .78); c.fillText("−jx capacitive", cx, cy + Rr * .8);
@@ -973,7 +979,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="block" id="experience" aria-labelledby="xTitle">
     <div class="wrap">
       <span class="eyebrow rv">Experience</span>
-      <h2 class="sec-title rv" id="xTitle">Building tools at <em>Hexagon</em></h2>
+      <h2 class="sec-title rv" id="xTitle">Building tools at Hexagon</h2>
       <div class="job-head rv">
         <div><h3 class="job-role">Intern, Hexagon Geosystems India</h3><p class="job-sub">Built internal AI-assisted tools for HR and marketing teams</p></div>
         <span class="job-when">2026</span>
@@ -1010,8 +1016,8 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="block" id="projects" aria-labelledby="pTitle">
     <div class="wrap">
       <span class="eyebrow rv">Projects</span>
-      <h2 class="sec-title rv" id="pTitle">Selected <em>work</em></h2>
-      <p class="sec-sub rv">Other things I've built.</p>
+      <h2 class="sec-title rv" id="pTitle">More things I've built</h2>
+      <p class="sec-sub rv">Side projects and tools, with links to the code.</p>
       <div class="cards two-up">
         <article class="card rv">
           <h4>My SRM Sync</h4>
@@ -1044,9 +1050,9 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
 
   <section class="block" id="skills" aria-labelledby="sTitle">
     <div class="wrap">
-      <span class="eyebrow rv">Skills &amp; tools</span>
-      <h2 class="sec-title rv" id="sTitle">The <em>toolkit</em></h2>
-      <p class="sec-sub rv">What I use to build things.</p>
+      <span class="eyebrow rv">Skills</span>
+      <h2 class="sec-title rv" id="sTitle">What I build with</h2>
+      <p class="sec-sub rv">Languages, frameworks and tools I use in my projects.</p>
       <div class="grid3 rv">
         <div><h3>Languages</h3><ul class="chips"><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>Java</li><li>C</li><li>HTML &amp; CSS</li></ul></div>
         <div><h3>Frameworks &amp; libraries</h3><ul class="chips"><li>React</li><li>Next.js</li><li>Flask</li><li>Streamlit</li><li>Tailwind</li><li>NumPy &amp; SciPy</li><li>Chart.js</li></ul></div>
@@ -1058,7 +1064,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="block" id="education" aria-labelledby="eTitle">
     <div class="wrap">
       <span class="eyebrow rv">Education</span>
-      <h2 class="sec-title rv" id="eTitle">Learning <em>path</em></h2>
+      <h2 class="sec-title rv" id="eTitle">Education and certifications</h2>
       <p class="sec-sub rv">Where I'm learning, and the courses I've completed.</p>
       <div class="two rv">
         <div class="edu-card">
@@ -1078,7 +1084,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
   <section class="block contact" id="contact" aria-labelledby="cTitle">
     <div class="wrap">
       <span class="eyebrow rv">Contact</span>
-      <h2 class="sec-title rv" id="cTitle">Let's build <em>something</em></h2>
+      <h2 class="sec-title rv" id="cTitle">Get in touch</h2>
       <p class="sec-sub rv" style="margin:0">I'm looking for software engineering internships, especially where signals, data and code meet.</p>
       <div class="contact-rows rv">
         <div class="c-row"><span class="k">Email</span><span class="v sel" id="email">kaushiknaman800@gmail.com</span><button class="copy" type="button" id="copyEmail">Copy</button></div>
@@ -1187,7 +1193,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; justify-cont
     var c = cv.getContext('2d'); c.setTransform(d, 0, 0, d, 0, 0); c.clearRect(0, 0, w, h);
     for (var k = 0; k < 5; k++) {
       var a = 0.05 + k * 0.035, amp = h * (0.08 + k * 0.035), f = 1.4 + k * 0.45, ph = t * (0.12 + k * 0.05) + k * 1.3;
-      c.strokeStyle = 'rgba(216,184,120,' + a.toFixed(3) + ')'; c.lineWidth = k === 4 ? 1.4 : 1;
+      c.strokeStyle = (k % 2 ? 'rgba(255,92,168,' : 'rgba(92,200,255,') + a.toFixed(3) + ')'; c.lineWidth = k === 4 ? 1.4 : 1;
       c.beginPath();
       for (var x = 0; x <= w; x += 4) { var u = x / w, env = Math.sin(Math.PI * u); var y = h * 0.62 - amp * env * Math.sin(u * f * 2 * Math.PI + ph); x ? c.lineTo(x, y) : c.moveTo(x, y); }
       c.stroke();
